@@ -1,0 +1,913 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #111317;
+  --primary-color-light: #1f2125;
+  --primary-color-extra-light: #35373b;
+  --secondary-color: #a5c956;
+  --secondary-color-dark: #56b870;
+  --text-light: #d1d5db;
+  --white: #ffffff;
+  --max-width: 1500px;
+}
+/* custom css variables for easy update and efficiency */
+html{
+  scroll-behavior: smooth;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* remove global margin and padding  */
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+/* Container with a maximum width set by a CSS variable and centered horizontally with 'margin: auto'. Padding adds space around the content. */
+
+.section__header {
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--white);
+}
+/* Styling for section headers: a large font size, bold weight, centered text, and white color. */
+
+.section__subheader {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  color: var(--text-light);
+}
+/* Subheader with a maximum width of 600px, centered text, and lighter color for secondary emphasis. */
+
+.btn {
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* Button styling with padding for size, no outline or border, white text, rounded corners, and a background color from a CSS variable. A transition is added for hover effects. */
+
+.btn:hover {
+  background-color: var(--secondary-color-dark);
+}
+/* On hover, the button background color changes to a darker version of the secondary color. */
+
+img {
+  width: 100%;
+  display: flex;
+}
+/* Images take full width of their parent container and are displayed flexibly (though 'flex' is rarely used with images). */
+
+a {
+  text-decoration: none;
+}
+/* Anchor tags (links) have no underline by default. */
+
+.bg__blur {
+  position: absolute;
+  box-shadow: 0 0 100px 50px var(--secondary-color-dark);
+  z-index: -1;
+}
+/* This element is positioned absolutely, with a large blurred box shadow that creates a glow effect. It's behind other content due to the negative z-index. */
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--primary-color);
+}
+/* The body uses the 'Poppins' font family and has a dark background color defined by a CSS variable. */
+
+nav {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+/* Navigation bar with a max width and centered content. It uses flexbox to align items and space them apart. */
+
+.nav__menu__btn {
+  display: none;
+}
+.pushRight{
+  display: none;
+}
+.nav__logo {
+  max-width: 150px;
+}
+/* Limits the logo's maximum width to 150px. */
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+/* The navigation links are displayed inline (horizontally) using flexbox with no bullet points and spacing between items. */
+
+.link a {
+  position: relative;
+  padding-bottom: 0.75rem;
+  color: var(--white);
+}
+/* Links inside the `.link` class have relative positioning, some padding for spacing, and white text color. */
+
+.link a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--secondary-color);
+  transition: 0.3s;
+}
+/* Creates an underline effect under the link, initially hidden (width: 0). The width changes on hover. */
+
+.link a:hover::after {
+  width: 50%;
+}
+/* On hover, the underline expands to 50% width, creating a smooth animation effect. */
+
+.header__container {
+  position: relative;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+/* The header container uses grid layout to create two equal columns, with vertical alignment in the center and space between items. */
+
+.header__container::before {
+  content: "SOLAR INSTALLATION";
+  position: absolute;
+  bottom: 5rem;
+  right: 20rem;
+  font-size: 10rem;
+  font-weight: 700;
+  line-height: 7rem;
+  color: var(--white);
+  opacity: 0.05;
+  z-index: -1;
+}
+/* Adds a large, faded text label behind the header content for a decorative effect. It is placed using absolute positioning. */
+
+.header__blur {
+  bottom: 5rem;
+  right: 0;
+}
+/* Positions the `.header__blur` element at the bottom right of its parent container. */
+
+.header__content h4 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+/* Styling for small header text with a secondary color and bold font weight. */
+
+.header__content h1 {
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 6rem;
+  color: var(--white);
+}
+/* Main header text with very large font size and bold weight, using white color. */
+
+.header__content h1 span {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px var(--white);
+}
+/* Applies a stroke effect to the text (only works in WebKit browsers like Chrome or Safari) by making the text fill transparent and adding a white outline. */
+
+.header__content p {
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+/* Paragraph text with lighter color to provide a secondary emphasis. */
+
+.header__image {
+  position: relative;
+}
+/* Header image is positioned relatively to allow positioning of pseudo-elements or child elements. */
+
+.header__image::before {
+  content: "{}";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40rem;
+  font-weight: 400;
+  line-height: 20rem;
+  color: var(--secondary-color);
+  opacity: 0.1;
+  z-index: -1;
+}
+/* Adds a large, semi-transparent decorative letter 'o' behind the header image for a visual effect. */
+
+.explore__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+/* The explore section header uses flexbox to space content and ensure vertical alignment, with a gap between elements. */
+
+.explore__nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+/* Navigation for the explore section, with items aligned horizontally using flexbox. */
+
+.explore__nav span {
+  padding: 0 6px;
+  font-size: 1.5rem;
+  color: var(--white);
+  border: 2px solid var(--white);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* Navigation buttons styled as circles with white borders and smooth hover effects. */
+
+.explore__nav span:hover {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+/* On hover, the color and border of the navigation buttons change to the secondary color. */
+
+.explore__grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+/* The explore section content is displayed in a 4-column grid with 2rem gaps between items. */
+
+.explore__card {
+  padding: 1rem;
+  background-color: var(--primary-color-light);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+/* Explore cards have padding, a slightly darker background, and rounded corners. On hover, the border and background color will change smoothly. */
+
+.explore__card:hover {
+  background-color: var(--primary-color-extra-light);
+  border-color: var(--secondary-color);
+}
+/* On hover, the background color lightens and the border becomes the secondary color. */
+
+.explore__card span {
+  display: inline-block;
+  padding: 2px 9px;
+  margin-bottom: 1rrem;
+  font-size: 1.75rem;
+  color: var(--white);
+  background-color: var(--secondary-color-dark);
+  border-radius: 5px;
+}
+/* Category labels for explore cards with bold text and dark secondary background color. They are inline elements with some padding and rounded corners. */
+
+.explore__card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+}
+/* Card headers are bold with white text. */
+
+.explore__card p {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+/* Card descriptions are lighter-colored and have margin space at the bottom. */
+
+.explore__card a {
+  color: var(--white);
+  transition: 0.3s;
+} /* Links inside the cards are white by default. */
+
+.explore__card a:hover {
+  color: var(--secondary-color);
+}
+/* On hover, the link color changes to the secondary color. */
+
+.class__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+/* Creates a grid layout with two equal columns and a gap of 2rem between the items. */
+
+.class__image {
+  position: relative;
+}
+/* Sets the class__image container's position to relative, allowing absolutely positioned child elements to be positioned relative to this container. */
+
+.class__image .class__img-1 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 500px;
+  border-radius: 10px;
+}
+/* The first image is positioned in the top-right corner with a maximum width of 500px and rounded corners. */
+
+.class__image .class__img-2 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 300px;
+  border-radius: 10px;
+}
+/* The second image is positioned in the bottom-left corner with a maximum width of 300px and rounded corners. */
+
+.class__image .class__img-3 {
+  position: absolute;
+  right: 20;
+  bottom: 400px;
+  max-width: 250px;
+  border-radius: 10px;
+}
+/* The third image is positioned 20px from the right and 400px from the bottom with a maximum width of 250px and rounded corners. */
+
+.class__content {
+  padding: 2rem 0;
+}
+/* Adds 2rem of vertical padding to the content inside the class__content. */
+
+.class__content .section__header {
+  text-align: left;
+  padding-left: 0;
+  max-width: 400px;
+}
+/* Aligns the section header text to the left, removes left padding, and limits the maximum width to 400px. */
+
+.class__content > ul {
+  margin-bottom: 4rem;
+  color: var(--text-light);
+}
+/* Unordered lists within class__content have a bottom margin of 4rem and lighter text color. */
+
+.class__content > p {
+  margin-bottom: 4rem;
+  color: var(--text-light);
+}
+/* Paragraphs within class__content also have a bottom margin of 4rem and lighter text color. */
+
+.class__content h4 {
+  margin-left: 10px;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+}
+/* Adds a left margin to headings (h4), with some bottom margin, bold weight, and white color. */
+
+.portfolio__container {
+  display: grid;
+  gap: 2rem 0;
+}
+
+.portfolio__btn {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Adds 2rem of padding to the portfolio button, centers it horizontally and vertically using flexbox. */
+
+.portfolio__image__wrapper {
+  overflow-x: hidden;
+  /* margin-top: 2rem; */
+}
+/* Prevents horizontal overflow and adds 2rem margin to the top of the image wrapper. */
+
+.portfolio__image {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: scroll 45s linear infinite;
+}
+/* The image container is set to flexbox layout, with items aligned to the center and 1rem gap. It continuously scrolls left with a 45-second linear animation. */
+
+.portfolio__image img {
+  max-width: 300px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
+}
+/* Images inside portfolio__image have a max-width of 300px and a subtle box shadow for depth. */
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+/* This keyframe animation moves the images horizontally to the left by 50% and 0.5rem. */
+
+.review {
+  background-color: var(--primary-color-light);
+}
+/* The review section has a light version of the primary background color. */
+
+.review__container {
+  display: flex;
+  gap: 2rem;
+}
+/* The review container uses flexbox to align items horizontally with a 2rem gap. */
+
+.review__container > span {
+  font-size: 6rem;
+  color: var(--secondary-color);
+  opacity: 0.5;
+}
+/* Large decorative span inside the review container, with a 6rem font size, secondary color, and 50% opacity for a faded effect. */
+
+.review__content {
+  flex: 1;
+}
+/* The content inside review__content takes up the available space within the flex container. */
+
+.review__content h4 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--white);
+}
+/* Headings in the review content have a larger font, bold weight, and white color, with some bottom margin. */
+
+.review__content p {
+  max-width: 800px;
+  margin-bottom: 2 rem;
+  color: var(--text-light);
+}
+/* Paragraphs in review content are limited to 800px width, with a light text color and bottom margin. */
+
+.review__rating span {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+/* Rating spans have a larger font size and are colored with the secondary color. */
+
+.review__footer {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+/* The review footer uses flexbox to space out items, align them vertically, and create a 2rem gap between them. */
+
+.review__customer {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+/* The customer section displays items in a row using flexbox, with a gap between items and aligning items to the top (flex-start). */
+
+.review__customer img {
+  max-width: 60px;
+  border-radius: 100%;
+}
+/* Customer images have a maximum width of 60px and are rounded into circles. */
+
+.review__customer__details h4 {
+  margin-bottom: 0;
+}
+/* Removes bottom margin from customer details headings (h4). */
+
+.review__nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+/* The navigation section inside the review uses flexbox for horizontal alignment with a 2rem gap between items. */
+
+.review__nav span {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+/* Navigation spans have a larger font size, secondary color, and a pointer cursor for interactivity. */
+
+.booking__container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.booking__calendar {
+  background-color: var(--white);
+  border-radius: 10px;
+  /* margin: 1rem; */
+}
+.contact__container {
+  max-width: 600px;
+}
+/* Limits the width of the contact container to 600px. */
+
+.contact__container .section__subheader {
+  margin-inline: auto;
+}
+/* Centers the subheader within the contact container horizontally. */
+
+.contact__container .section__header {
+  margin-bottom: 1rem;
+  margin-inline: auto;
+  text-align: center;
+}
+/* Centers the header text, adds a 1rem bottom margin, and auto centers it horizontally. */
+
+.contact__container .section__description {
+  margin-bottom: 2rem;
+  margin-inline: auto;
+  text-align: center;
+  color: var(--text-light);
+}
+/* The description in the contact container has a 2rem bottom margin, centered text, and lighter color. */
+
+.contact__container form {
+  display: grid;
+  gap: 1rem;
+}
+/* The form inside the contact container is arranged in a grid with a 1rem gap between elements. */
+
+.form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+/* The form grid is divided into two equal columns with a 1rem gap between them. */
+
+.contact__container :is(input, textarea) {
+  padding: 1rem 0.75rem;
+  outline: none;
+  border: 1px solid var(--extra-light);
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-dark);
+  border-radius: 5px;
+}
+/* Inputs and text areas have padding, a light border, no outline, and use the Roboto font. They also have a border-radius for rounded corners. */
+
+.contact__container :is(textarea) {
+  /* width: 100%; */
+  height: 10rem;
+}
+.contact__container .btn {
+  max-width: fit-content;
+  margin-inline: auto;
+}
+/* The button inside the contact container is centered horizontally and has a fit-content width. */
+
+.footer__container {
+  padding-block: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+  border-top: 1px solid var(--extra-light);
+}
+/* The footer container has 2rem padding at the top and bottom, uses flexbox to space out items with a 2rem gap, and includes a top border. */
+
+.footer__container p {
+  color: var(--text-light);
+  text-align: center;
+  line-height: 1.5rem;
+}
+/* Paragraphs inside the footer are centered, have light text color, and a line height of 1.5rem for better readability. */
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+/* Social icons in the footer are aligned using flexbox with centered alignment and a 1rem gap. */
+
+.footer__socials a {
+  padding: 6px 8px;
+  font-size: 1.125rem;
+  color: var(--white);
+  background-color: var(--secondary-color);
+  border-radius: 100%;
+}
+/* Social icons are styled with white text, a secondary color background, and circular shape. */
+
+.footer__socials a:hover {
+  background-color: var(--secondary-color-dark);
+}
+/* On hover, the background color of social icons darkens to indicate interactivity. */
+
+/* padakan ang font sa testimonials and hero section */
+
+/*========IPADPRO==========*/
+@media only screen and (min-width: 835px) and (max-width: 1030px) {
+
+  html, body {
+    overflow-x: hidden;
+  }
+  
+
+.class__image .class__img-1 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 500px;
+  border-radius: 10px;
+}
+/* The first image is positioned in the top-right corner with a maximum width of 500px and rounded corners. */
+
+.class__image .class__img-2 {
+  position: absolute;
+  left: 20px;
+  bottom: 50px;
+  max-width: 300px;
+  border-radius: 10px;
+}
+/* The second image is positioned in the bottom-left corner with a maximum width of 300px and rounded corners. */
+
+.class__image .class__img-3 {
+  position: absolute;
+  left: 200px;
+  bottom: 450px;
+  max-width: 250px;
+  border-radius: 10px;
+}
+
+.nav__logo{
+  max-width: 120px;
+}
+
+
+.btn__booking {
+  font-size: .90rem;
+  padding: .80rem 1rem;
+
+
+}
+
+}
+
+/*==========iPAD==========*/
+@media only screen and (min-width: 700px) and (max-width: 835px) {
+
+  html, body {
+    overflow-x: hidden;
+  }
+  .explore__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav__menu__btn {
+    display: flex;
+    font-size: 2rem;
+    color: var(--white);
+    cursor: pointer;
+  }
+  .nav__menu__btn {
+    display: block; /* Show the hamburger menu */
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
+  .btn__booking1{
+    display: none;
+  }
+  .btn__signIn {
+    margin-left: auto;
+   
+  }
+
+  .pushRight{
+    display: flex;
+    justify-content: end;
+    margin-left: auto;
+    margin-right: 0;
+    
+  }
+  .nav__logo{
+    max-width: 120px;
+  }
+  .nav__links {
+    display: none; /* Hide the links by default */
+    position: absolute;
+    top: 8%; /* Place it below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: var(
+      --primary-color
+    ); /* Use your desired background color */
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    z-index: 9;
+  }
+
+  .nav__links.open {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  .nav__links a {
+    color: var(--white);
+    text-align: center;
+  }
+
+.header__content h4 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+/* Styling for small header text with a secondary color and bold font weight. */
+
+.header__content h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3rem;
+  color: var(--white);
+}
+/* Main header text with very large font size and bold weight, using white color. */
+
+
+  .class__content{
+    padding-top: 15%;
+  }
+  .class__content > ul {
+    margin-bottom: 2rem;
+    color: var(--text-light);
+  }
+
+  .class__image .class__img-1,
+  .class__image .class__img-2,
+  .class__image .class__img-3 {
+    position: relative; /* Reset position to static */
+    max-width: 100%; /* Set max-width for responsiveness */
+    margin-bottom: 10px; /* Optional: Adds space between images */
+    /* Optional: Adjust other properties as needed */
+  }
+
+  .class__image .class__img-3 {
+    bottom: auto; /* Reset bottom positioning */
+    right: auto; /* Reset right positioning */
+  }
+  /* Add a negative margin to .class__img-2 to overlap 10% */
+.class__image .class__img-2 {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px;
+  z-index: 9;
+  margin-top: -25%; /* Move up to overlap 10% with img-1 */
+}
+
+.class__image .class__img-3 {
+  margin-top: -20%; /* Move up to overlap 10% with img-2 */
+}
+
+
+}
+
+/*========MOBILE==========*/
+@media only screen and (max-width: 600px) {
+  .explore__grid {
+    grid-template-columns: 1fr;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .nav__logo{
+    max-width: 100px;
+  }
+
+  .nav__menu__btn {
+    display: block;
+    font-size: 2rem;
+    color: var(--white);
+    cursor: pointer;
+  }
+  .pushRight{
+    display: flex;
+    justify-content: end;
+
+    
+  }
+
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    z-index: 9;
+  }
+
+  .nav__links.open {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  .nav__links a {
+    color: var(--white);
+    text-align: center;
+  }
+
+  .btn__booking {
+    display: none;
+  }
+
+  .btn {
+    padding: .7rem 1.4rem;
+    outline: none;
+    border: none;
+    font-size: .7rem;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .header__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .header__content h1 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .section__header {
+    font-size: 1.75rem;
+  }
+
+
+  .class__container {
+    padding-top: 1rem;
+    display: flex;
+
+  }
+
+.class__content {
+  text-align: center;
+  align-items: center;
+}
+
+  .class__content .section__header {
+    text-align: center;
+   
+  }
+  .class__content h4{
+    margin-top: 2rem;
+  }
+  .class__content > ul {
+    list-style: none;
+  }
+
+  .class__image {
+    display: none;
+  }
+
+  .review__footer {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  /* Sets the class__image container's position to relative, allowing absolutely positioned child elements to be positioned relative to this container. */
+  .contact__container {
+    max-width: 300px;
+  }
+
+
+
+  .form__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
